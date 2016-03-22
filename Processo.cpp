@@ -2,73 +2,73 @@
 
 
 /* Contrutores */
-Processo::Processo()
-{
+Processo::Processo(){
 	pid = 0;
 	ppid = 0;
-	useCpu = 0;
-	useMem = 0;
+	usoCpu = 0;
+	usoMem = 0;
 	numThreads = 0;
+	usoGourmet = 0;
 }
 
-Processo::Processo(unsigned int pid, unsigned int ppid, unsigned int useCpu,
-		 		   unsigned int useMem, unsigned numThreads)
-{
+Processo::Processo(unsigned int pid, unsigned int ppid, unsigned int usoCpu, unsigned int usoMem, unsigned numThreads){
 	this->pid = pid;
 	this->ppid = ppid;
-	this->useCpu = useCpu;
-	this->useMem = useMem;
+	this->usoCpu = usoCpu;
+	this->usoMem = usoMem;
 	this->numThreads = numThreads;
+	usoGourmet = 0;
 }
 
 /* Setters */
-void Processo::set_pid(unsigned int pid)
-{
+void Processo::set_pid(unsigned int pid){
 	this->pid = pid;
 }
 
-void Processo::set_ppid(unsigned int ppid)
-{
+void Processo::set_ppid(unsigned int ppid){
 	this->ppid = ppid;
 }
 
-void Processo::set_useCpu(unsigned int useCpu)
-{
-	this->useCpu = useCpu;
+void Processo::set_usoCpu(unsigned int usoCpu){
+	this->usoCpu = usoCpu;
 }
 
-void Processo::set_useMem(unsigned int useMem)
-{
-	this->useMem = useMem;	
+void Processo::set_usoMem(unsigned int usoMem){
+	this->usoMem = usoMem;	
 }
 
-void Processo::set_numThreads(unsigned int numThreads)
-{
+void Processo::set_numThreads(unsigned int numThreads){
 	this->numThreads = numThreads;
 }
 
 /* Getters */
-unsigned int Processo::get_pid()
-{
+unsigned int Processo::get_pid(){
 	return pid;
 }
 
-unsigned int Processo::get_ppid()
-{
+unsigned int Processo::get_ppid(){
 	return ppid;
 }
 
-unsigned int Processo::get_useCpu()
-{
-	return useCpu;
+unsigned int Processo::get_usoCpu(){
+	return usoCpu;
 }
 
-unsigned int Processo::get_useMem()
-{
-	return useMem;
+unsigned int Processo::get_usoMem(){
+	return usoMem;
 }
 
-unsigned int Processo::get_numThreads()
-{
+unsigned int Processo::get_numThreads(){
 	return numThreads;
+}
+
+unsigned double Processo::get_usoGourmet(){
+	return usoGourmet;
+}
+
+
+/* Outros métodos */
+
+unsigned int tamGourmet(){
+	usoGourmet = (4*usoCpu + 3*usoMem)/(7 * numThreads)
 }
